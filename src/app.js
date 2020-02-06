@@ -108,8 +108,6 @@ app.get('*',(req,res)=>{
 })
 
 
-//start server
-
 app.listen(3000,()=>{
     console.log('Server has started')
 });
