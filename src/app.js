@@ -3,20 +3,15 @@ const express = require('express');
 const hbs = require('hbs');
 const utils = require('./utils/utils.js')
 const app = express();
+const port =process.env.PORT || 3000
 
-//setup handlebar engine and views location
 app.set('view engine', 'hbs');
 app.set('views',path.join(__dirname,'../tempelates/views'))
 hbs.registerPartials(path.join(__dirname,'../tempelates/partials'))
 
-//setup static directory to serve
 app.use(express.static(path.join(__dirname,'../public')));
 
 
-//app.com
-//app.com/help
-//app.com/buy we do this by get
-//request and respond 
 
 app.get('/',(req,res) =>{
     res.render('index.hbs',{
@@ -108,6 +103,6 @@ app.get('*',(req,res)=>{
 })
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('Server has started')
 });
